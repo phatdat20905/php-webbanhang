@@ -1,9 +1,22 @@
 ﻿<?php include 'inc/header.php';?>
 <?php include 'inc/sidebar.php';?>
+<?php include '../classes/category.php';?>
+<?php 
+	$cat = new Category();
+	if(isset($_GET['delId'])) {
+        $id = $_GET['delId'];
+		$delcat = $cat->delete_category($id);
+    }
+?>
         <div class="grid_10">
             <div class="box round first grid">
                 <h2>Category List</h2>
-                <div class="block">        
+                <div class="block"> 
+				<?php 
+                    if(isset($delcat)){
+                        echo $delcat;
+                    }
+                ?>        
                     <table class="data display datatable" id="example">
 					<thead>
 						<tr>
@@ -12,47 +25,28 @@
 							<th>Action</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr class="odd gradeX">
-							<td>01</td>
-							<td>Internet</td>
-							<td><a href="">Edit</a> || <a href="">Delete</a></td>
-						</tr>
-						<tr class="even gradeC">
-							<td>02</td>
-							<td>Explorer </td>
-							<td><a href="">Edit</a> || <a href="">Delete</a></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>03</td>
-							<td>Internet</td>
-							<td><a href="">Edit</a> || <a href="">Delete</a></td>
-						</tr>
-						<tr class="even gradeC">
-							<td>04</td>
-							<td>Explorer </td>
-							<td><a href="">Edit</a> || <a href="">Delete</a></td>
-						</tr>
+					<t>
+						<?php 
+							$show_cat = $cat->show_category();
+							if($show_cat){
+                                $i = 0;
+                                while($result = $show_cat->fetch_assoc()){
+                                    $i++;
+                        ?>
 							<tr class="odd gradeX">
-							<td>05</td>
-							<td>Internet</td>
-							<td><a href="">Edit</a> || <a href="">Delete</a></td>
-						</tr>
-						<tr class="even gradeC">
-							<td>06</td>
-							<td>Explorer </td>
-							<td><a href="">Edit</a> || <a href="">Delete</a></td>
-						</tr>
-						<tr class="odd gradeX">
-							<td>07</td>
-							<td>Internet</td>
-							<td><a href="">Edit</a> || <a href="">Delete</a></td>
-						</tr>
-						<tr class="even gradeC">
-							<td>08</td>
-							<td>Explorer </td>
-							<td><a href="">Edit</a> || <a href="">Delete</a></td>
-						</tr>
+								<td><?php echo $i?></td>
+								<td><?php echo $result['catName']?></td>
+								<td><a href="catedit.php?catId=<?php echo $result['catId']?>">Edit</a> || <a  
+										onclick="return confirm('Are you sure you want to delete <?php echo $result['catName']?>?')"
+										href="?delId=<?php echo $result['catId']?>">Delete
+									</a>
+								</td>
+							</tr>
+						<?php
+								}
+							}
+
+						?>    
 					</tbody>
 				</table>
                </div>
