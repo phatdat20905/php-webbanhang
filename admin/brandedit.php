@@ -1,17 +1,17 @@
 ﻿<?php include 'inc/header.php';?>
 <?php include 'inc/sidebar.php';?>
-<?php include '../classes/category.php'?>
+<?php include '../classes/brand.php'?>
 <?php
-    $cat = new Category();
-    if(!isset($_GET['catId']) || $_GET['catId'] == NULL) {
-        echo "<script>window.location='catlist.php';</script>";
+    $cat = new Brand();
+    if(!isset($_GET['brandId']) || $_GET['brandId'] == NULL) {
+        echo "<script>window.location='brandlist.php';</script>";
     }else {
-        $id = $_GET['catId'];
+        $id = $_GET['brandId'];
     }
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
-		$catName = $_POST['catName'];
+		$brandName = $_POST['brandName'];
 
-		$updateCat = $cat->update_category($catName, $id);
+		$updateBrand = $cat->update_brand($brandName, $id);
     }
 
 ?>
@@ -20,12 +20,12 @@
                 <h2>Sửa danh mục</h2>
                <div class="block copyblock">
                <?php 
-                    if(isset($updateCat)){
-                        echo $updateCat;
+                    if(isset($updateBrand)){
+                        echo $updateBrand;
                     }
                 ?> 
                 <?php 
-                    $get_cat_name = $cat->get_cat_by_id($id);
+                    $get_cat_name = $cat->get_brand_by_id($id);
                     if($get_cat_name){
                         while($result = $get_cat_name->fetch_assoc()){
 
@@ -34,7 +34,7 @@
                     <table class="form">					
                         <tr>
                             <td>
-                                <input type="text" value="<?php echo $result['catName']?>" name="catName" placeholder="Sửa danh mục sản phẩm ..." class="medium" />
+                                <input type="text" value="<?php echo $result['brandName']?>" name="brandName" placeholder="Sửa danh mục thương hiệu ..." class="medium" />
                             </td>
                         </tr>
 						<tr> 
