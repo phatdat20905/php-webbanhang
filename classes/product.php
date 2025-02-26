@@ -1,7 +1,7 @@
 <?php 
-
-    include_once '../lib/database.php';
-    include_once '../helpers/format.php';
+    $filepath = realpath(dirname(__FILE__));
+    include_once ($filepath.'/../lib/database.php');
+    include_once ($filepath.'/../helpers/format.php');
 ?>
 <?php
     class Product 
@@ -138,6 +138,48 @@
         
         public function get_product_by_id($productId) {
             $query = "SELECT * FROM tbl_product WHERE productId = '$productId'";
+            $result = $this->db->select($query);
+            return $result;
+        }
+        
+        public function get_product_featured() {
+            $query = "SELECT * FROM tbl_product WHERE type = '1'";
+            $result = $this->db->select($query);
+            return $result;
+        }
+        public function get_product_new() {
+            $query = "SELECT * FROM tbl_product ORDER BY productId DESC LIMIT 4";
+            $result = $this->db->select($query);
+            return $result;
+        }
+        
+        public function get_product_details($id) {
+            $query = "SELECT p.*, c.catName, b.brandName 
+                    FROM tbl_product as p, tbl_category as c, tbl_brand as b WHERE p.catId = c.catId
+                    AND p.brandId = b.brandId 
+                    AND p.productId = '$id' 
+                    ORDER BY p.productId";
+            $result = $this->db->select($query);
+            return $result;
+        }
+        
+        public function getLastestDell() {
+            $query = "SELECT * FROM tbl_product WHERE brandId = '2' ORDER BY productId DESC LIMIT 1";
+            $result = $this->db->select($query);
+            return $result;
+        }
+        public function getLastestMSI() {
+            $query = "SELECT * FROM tbl_product WHERE brandId = '1' ORDER BY productId DESC LIMIT 1";
+            $result = $this->db->select($query);
+            return $result;
+        }
+        public function getLastestApple() {
+            $query = "SELECT * FROM tbl_product WHERE brandId = '4' ORDER BY productId DESC LIMIT 1";
+            $result = $this->db->select($query);
+            return $result;
+        }
+        public function getLastestSS() {
+            $query = "SELECT * FROM tbl_product WHERE brandId = '5' ORDER BY productId DESC LIMIT 1";
             $result = $this->db->select($query);
             return $result;
         }
