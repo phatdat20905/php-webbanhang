@@ -89,5 +89,11 @@ include_once ($filepath.'/../helpers/format.php');
             $result = $this->db->select($query);
             return $result;
         }
+        public function del_all_data_cart(){
+            $sId = session_id();
+            $query = "DELETE * FROM tbl_cart WHERE sId = '$sId'";
+            $result = $this->db->delete($query);
+            return $result;
+        }
     }
 ?>

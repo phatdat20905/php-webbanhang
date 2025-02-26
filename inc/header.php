@@ -15,6 +15,7 @@
 	$ct = new Cart();
 	$us = new User();
 	$cat = new Category();
+	$cs = new Customer();
 	$product = new Product();
 	
 ?>
@@ -78,7 +79,21 @@
 							</a>
 						</div>
 			      </div>
-		   <div class="login"><a href="login.php">Login</a></div>
+			<?php 
+				if(isset($_GET['customer_id'])){
+					Session::destroy();
+				}
+			?>
+		   <div class="login">
+			<?php 
+			$login_check = Session::get('customer_login');
+			if($login_check == true) {
+                echo '<a href="?customer_id='.Session::get('customer_id').'">Logout</a>';
+            } else {
+                echo '<a href="login.php">Login</a>';
+            }
+			?>
+			</div>
 		 <div class="clear"></div>
 	 </div>
 	 <div class="clear"></div>
@@ -89,6 +104,12 @@
 	  <li><a href="products.php">Products</a> </li>
 	  <li><a href="topbrands.php">Top Brands</a></li>
 	  <li><a href="cart.php">Cart</a></li>
+	  <?php
+	  $login_check = Session::get('customer_login');
+	  if($login_check) {
+          echo '<li><a href="profile.php">Profile</a></li>';
+      }
+	  ?>
 	  <li><a href="contact.php">Contact</a> </li>
 	  <div class="clear"></div>
 	</ul>

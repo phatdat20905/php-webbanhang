@@ -85,5 +85,21 @@
             $result = $this->db->select($query);
             return $result;
         }
+
+        public function show_category_fontend() {
+            $query = "SELECT * FROM tbl_category ORDER BY catId";
+            $result = $this->db->select($query);
+            return $result;
+        }
+        public function get_product_by_cat($id){
+            $query = "SELECT * FROM tbl_product WHERE catId = '$id' ORDER BY catId DESC LIMIT 8";
+            $result = $this->db->select($query);
+            return $result;
+        }
+        public function get_name_by_cat($id){
+            $query = "SELECT p.*, c.catName, c.catId FROM tbl_product as p, tbl_category as c WHERE p.catId = c.catId AND c.catId = '$id' LIMIT 1";
+            $result = $this->db->select($query);
+            return $result;
+        }
     }
 ?>
