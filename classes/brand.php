@@ -1,7 +1,7 @@
 <?php 
 
-    include '../lib/database.php';
-    include '../helpers/format.php';
+    include_once '../lib/database.php';
+    include_once '../helpers/format.php';
 ?>
 <?php
     class Brand 
@@ -38,7 +38,7 @@
         }
         
         public function show_brand() {
-            $query = "SELECT * FROM tbl_brand ORDER BY brandId DESC";
+            $query = "SELECT * FROM tbl_brand ORDER BY brandId";
             $result = $this->db->select($query);
             return $result;
         }

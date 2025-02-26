@@ -1,7 +1,7 @@
 <?php 
 
-    include '../lib/database.php';
-    include '../helpers/format.php';
+    include_once '../lib/database.php';
+    include_once '../helpers/format.php';
 ?>
 <?php
     class Category 
@@ -38,7 +38,7 @@
         }
         
         public function show_category() {
-            $query = "SELECT * FROM tbl_category ORDER BY catId DESC";
+            $query = "SELECT * FROM tbl_category ORDER BY catId";
             $result = $this->db->select($query);
             return $result;
         }
