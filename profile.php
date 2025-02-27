@@ -65,6 +65,7 @@
 					<td>:</td>
                     <td><?php echo $result['email']?></td>
 				</tr>
+				<td colspan="3"><a href="editprofile.php">Update Profile</a></td>
 				<?php } }?>
 			</table>
 		</div>
