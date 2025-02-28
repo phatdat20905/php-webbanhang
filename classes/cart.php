@@ -96,7 +96,7 @@ include_once ($filepath.'/../helpers/format.php');
             return $result;
         }
         public function del_compare($customer_id){
-            $query = "DELETE FROM tbl_cart WHERE customer_id = '$customer_id'";
+            $query = "DELETE FROM tbl_compare WHERE customer_id = '$customer_id'";
             $result = $this->db->delete($query);
             return $result;
         }
@@ -129,11 +129,15 @@ include_once ($filepath.'/../helpers/format.php');
             return $result;
         }
 
-        public function check_order($customer_id){
-            $query = "SELECT * FROM tbl_order WHERE customer_id = $customer_id";
+        public function check_order($customer_id) {
+            if(!$customer_id) {
+                return false;
+            }
+            $query = "SELECT * FROM tbl_order WHERE customer_id = '$customer_id'";
             $result = $this->db->select($query);
             return $result;
         }
+        
         public function get_inbox_cart(){
             $query = "SELECT * FROM tbl_order ORDER BY date_order DESC";
             $result = $this->db->select($query);

@@ -2,6 +2,7 @@
 	include 'inc/header.php';
 	// include 'inc/slider.php';
 ?>
+
 <?php
     if(!isset($_GET['proid']) || $_GET['proid'] == NULL) {
         echo "<script>window.location='404.php';</script>";
@@ -13,11 +14,21 @@
 		$productid = $_POST['productid'];
 		$inserCompare = $product->inserCompare($productid, $customer_id);
     }
+	if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['wishlist'])) {
+		$productid = $_POST['productid'];
+		$inserCompare = $product->inserWishlist($productid, $customer_id);
+    }
 	if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 		$quantity = $_POST['quantity'];
 		$AddtoCart = $ct->add_to_cart($quantity, $id);
     }
 ?>
+<style type="text/css">
+	.bt-details input[type=submit]{
+		float: left;
+		margin: 5px;
+	}
+</style>
 
  <div class="main">
     <div class="content">
@@ -52,24 +63,41 @@
 					</form>				
 				</div>
 				<div class="add-cart">
-					<!-- <a href="?wlist=<?php echo $result_details['productId']?>" class="buysubmit">Save to Wishlist</a>			
-					<a href="?compare=<?php echo $result_details['productId']?>" class="buysubmit">Compare Product</a>			 -->
-					<form action="" method="post">
-                        <input type="hidden" name="productid" value="<?php echo $result_details['productId']?>">
-						<?php
-						if($login_check) {
-							echo '<input type="submit" class="buysubmit" name="compare" value="Compare Product">'.'   ';
-							echo '<input type="submit" class="buysubmit" name="wishlist" value="Save ti Wishlist">';
+					<div class="bt-details">
+						<form action="" method="post">
+							<input type="hidden" name="productid" value="<?php echo $result_details['productId']?>">
+							<?php
+							if($login_check) {
+								echo '<input type="submit" class="buysubmit" name="compare" value="Compare Product">'.'   ';
+							}
+							?>
+							
+						</form>
+						<form action="" method="post">
+							<input type="hidden" name="productid" value="<?php echo $result_details['productId']?>">
+							<?php
+							if($login_check) {
+								echo '<input type="submit" class="buysubmit" name="wishlist" value="Save ti Wishlist">';
+							}
+							?>
+							
+						</form>
+					</div>
+					<div class="clear"></div>
+					<p>
+					<?php
+							if(isset($inserCompare)){
+								echo $inserCompare;
+							}
+							?>
+					<?php
+						if(isset($inserWishlist)){
+							echo $inserWishlist;
 						}
 						?>
-						<?php
-						if(isset($inserCompare)){
-							echo $inserCompare;
-						}
-						?>
-                    </form>            
+					</p>            
                 </div>
-				</div>
+			</div>
 		</div>
 			<div class="product-desc">
 			<h2>Product Details</h2>

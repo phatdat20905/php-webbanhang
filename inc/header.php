@@ -1,6 +1,7 @@
 <?php 
     include 'lib/session.php';
     Session::init();
+	
 ?>
 <?php 
 	include_once 'lib/database.php';
@@ -116,19 +117,20 @@
 	  }
 	  ?>
 	  <?php
-	//   $customer_id = Session::get('customer_id');
-	//   $check_order = $ct->check_order($customer_id);
-	//   if($check_order == true) {
-    //       echo '<li><a href="orderdetails.php">Ordered</a></li>';
-    //   } else {
-	// 	echo '';
-	//   }
+	  $customer_id = Session::get('customer_id');
+	  $check_order = $ct->check_order($customer_id);
+	  if($check_order == true) {
+          echo '<li><a href="orderdetails.php">Ordered</a></li>';
+      } else {
+		echo '';
+	  }
 	  ?>
 	  <?php
 	  $login_check = Session::get('customer_login');
 	  if($login_check) {
           echo '<li><a href="profile.php">Profile</a></li>';
           echo '<li><a href="compare.php">Compare</a></li>';
+          echo '<li><a href="wishlist.php">Wishlist</a></li>';
       }
 	  ?>
 	  <li><a href="contact.php">Contact</a> </li>
