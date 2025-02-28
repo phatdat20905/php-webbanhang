@@ -8,6 +8,11 @@
     }else {
         $id = $_GET['proid'];
     }
+	$customer_id = Session::get('customer_id');
+	if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['compare'])) {
+		$productid = $_POST['productid'];
+		$inserCompare = $product->inserCompare($productid, $customer_id);
+    }
 	if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 		$quantity = $_POST['quantity'];
 		$AddtoCart = $ct->add_to_cart($quantity, $id);
@@ -38,6 +43,7 @@
 					<form action="" method="post">
 						<input type="number" class="buyfield" name="quantity" value="1" min="1"/>
 						<input type="submit" class="buysubmit" name="submit" value="Buy Now"/>
+						
 						<?php
 						if(isset($AddtoCart)){
 							echo '<span style="color:red;font-size:10px;">Product Already Exits</span>';
@@ -46,8 +52,23 @@
 					</form>				
 				</div>
 				<div class="add-cart">
-					<a href="" class="buysubmit">Save to Wishlist</a>			
-					<a href="" class="buysubmit">Compare Product</a>			
+					<!-- <a href="?wlist=<?php echo $result_details['productId']?>" class="buysubmit">Save to Wishlist</a>			
+					<a href="?compare=<?php echo $result_details['productId']?>" class="buysubmit">Compare Product</a>			 -->
+					<form action="" method="post">
+                        <input type="hidden" name="productid" value="<?php echo $result_details['productId']?>">
+						<?php
+						if($login_check) {
+							echo '<input type="submit" class="buysubmit" name="compare" value="Compare Product">'.'   ';
+							echo '<input type="submit" class="buysubmit" name="wishlist" value="Save ti Wishlist">';
+						}
+						?>
+						<?php
+						if(isset($inserCompare)){
+							echo $inserCompare;
+						}
+						?>
+                    </form>            
+                </div>
 				</div>
 		</div>
 			<div class="product-desc">

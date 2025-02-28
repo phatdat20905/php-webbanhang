@@ -183,5 +183,40 @@
             $result = $this->db->select($query);
             return $result;
         }
+        public function inserCompare($productid, $customer_id){
+            $productid = mysqli_real_escape_string($this->db->link, $productid);
+            $customer_id = mysqli_real_escape_string($this->db->link, $customer_id);
+
+            $check_compare = "SELECT * FROM tbl_compare WHERE productId = '$productid' AND customer_id = '$customer_id'";
+            $check_result = $this->db->select($check_compare);
+            if($check_result){
+                $msg = "<span class='error'>Product Already Exists to compare</span>";
+                return $msg;
+            } else {
+                $query = "SELECT * FROM tbl_product WHERE productId = '$productid'";
+                $result = $this->db->select($query)->fetch_assoc();
+
+                $productName = $result['productName'];
+                $price = $result['price'];
+                $image = $result['image'];
+                $query_insert = "INSERT INTO tbl_compare(productId,price,image,customer_id,productName) 
+                VALUES('$productid','$price', '$image', '$customer_id','$productName')";
+                $insert_compare = $this->db->insert($query_insert);
+                
+                if($insert_compare) {
+                    $alert = "<span class='success'>Added Compare Successfully</span>";
+                    return $alert;
+                } else {
+                    $alert = "<span class='error'>Added Compare Failed</span>";
+                    return $alert;    
+                }
+            }
+        }
+        
+        public function get_compare($customer_id) {
+            $query = "SELECT * FROM tbl_compare WHERE customer_id = '$customer_id' ORDER BY id DESC";
+            $result = $this->db->select($query);
+            return $result;
+        }
     }
 ?>

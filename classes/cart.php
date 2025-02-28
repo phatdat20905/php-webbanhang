@@ -95,6 +95,11 @@ include_once ($filepath.'/../helpers/format.php');
             $result = $this->db->delete($query);
             return $result;
         }
+        public function del_compare($customer_id){
+            $query = "DELETE FROM tbl_cart WHERE customer_id = '$customer_id'";
+            $result = $this->db->delete($query);
+            return $result;
+        }
         public function insertOrder($customer_id){
             $sId = session_id();
             $query = "SELECT * FROM tbl_cart WHERE sId = '$sId'";
@@ -123,6 +128,7 @@ include_once ($filepath.'/../helpers/format.php');
             $result = $this->db->select($query);
             return $result;
         }
+
         public function check_order($customer_id){
             $query = "SELECT * FROM tbl_order WHERE customer_id = $customer_id";
             $result = $this->db->select($query);

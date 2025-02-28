@@ -81,6 +81,9 @@
 			      </div>
 			<?php 
 				if(isset($_GET['customer_id'])){
+					$customer_id = $_GET['customer_id'];
+					$delCart = $ct->del_all_data_cart();
+					$delCompare = $ct->del_compare($customer_id);
 					Session::destroy();
 				}
 			?>
@@ -105,19 +108,29 @@
 	  <li><a href="topbrands.php">Top Brands</a></li>
 	  <li><a href="cart.php">Cart</a></li>
 	  <?php
+	  $check_cart = $ct->check_cart();
+	  if($check_cart == true) {
+          echo '<li><a href="cart.php">Cart</a></li>';
+      } else {
+		echo '';
+	  }
+	  ?>
+	  <?php
 	//   $customer_id = Session::get('customer_id');
 	//   $check_order = $ct->check_order($customer_id);
-	//   if(isset($check_order)) {
+	//   if($check_order == true) {
     //       echo '<li><a href="orderdetails.php">Ordered</a></li>';
-    //   }
+    //   } else {
+	// 	echo '';
+	//   }
 	  ?>
 	  <?php
 	  $login_check = Session::get('customer_login');
 	  if($login_check) {
           echo '<li><a href="profile.php">Profile</a></li>';
+          echo '<li><a href="compare.php">Compare</a></li>';
       }
 	  ?>
-	  <li><a href="compare.php">Compare</a> </li>
 	  <li><a href="contact.php">Contact</a> </li>
 	  <div class="clear"></div>
 	</ul>
