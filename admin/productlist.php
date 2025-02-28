@@ -46,7 +46,7 @@
 				<tr class="odd gradeX">
 					<td><?php echo $i?></td>
 					<td><?php echo $result['productName']?></td>
-					<td><?php echo $result['price']?></td>
+					<td><?php echo $fm->format_currency($result['price']).' VND'?></td>
 					<td><img src="uploads/<?php echo $result['image']?>" alt="Ảnh sản phẩm" width="80"></td>
 					<td><?php echo $result['catName']?></td>
 					<td><?php echo $result['brandName']?></td>

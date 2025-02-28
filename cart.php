@@ -53,7 +53,7 @@
 							<tr>
 								<td><?php echo $result['productName']?></td>
 								<td><img src="admin/uploads/<?php echo $result['image']?>" alt="Ảnh sản phẩm"/></td>
-								<td><?php echo $result['price']?></td>
+								<td><?php echo $fm->format_currency($result['price']).' VND'?></td>
 								<td>
 									<form action="" method="post">
 										<input type="hidden" name="cartId" value="<?php echo $result['cartId']?>"/>

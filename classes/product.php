@@ -183,7 +183,7 @@
             $result = $this->db->select($query);
             return $result;
         }
-        public function inserCompare($productid, $customer_id){
+        public function insertCompare($productid, $customer_id){
             $productid = mysqli_real_escape_string($this->db->link, $productid);
             $customer_id = mysqli_real_escape_string($this->db->link, $customer_id);
 
@@ -255,6 +255,87 @@
         public function delete_wishlist($proid, $customer_id) {
             $query = "DELETE FROM tbl_wishlist WHERE productId = '$proid' AND customer_id = '$customer_id'";
             $result = $this->db->delete($query);
+            return $result;
+        }
+        public function insert_slider($data, $files){
+            $sliderName = mysqli_real_escape_string($this->db->link, $data['sliderName']);
+            $type = mysqli_real_escape_string($this->db->link, $data['type']);
+            
+            
+            $permited = array('jpg', 'jpeg', 'png', 'gif');
+            $file_name = $_FILES['image']['name'];
+            $file_size = $_FILES['image']['size'];
+            $file_temp = $_FILES['image']['tmp_name'];
+
+            $div = explode('.', $file_name);
+            $file_ext = strtolower(end($div));
+            $unique_image = substr(md5(time()), 0, 10). '.'. $file_ext;
+            $uploaded_image = "uploads/".$unique_image;
+            if($sliderName == '' || $type == '') {
+                $alert = "<span class='error'>Fields must be not empty</span>";
+                return $alert;
+            } else {
+                if(!empty($file_name)){
+                    if($file_size > 2048000){
+                        $alert = "<span class='error'>Image Size should be less than 2MB</span>";
+                        return $alert;
+                    }
+                    elseif(in_array($file_ext, $permited) === false){
+                        $alert = "<span class='error'>You can upload only:- ".implode(', ', $permited)."</span>";
+                        return $alert;
+                    }
+                    move_uploaded_file($file_temp, $uploaded_image);
+                    $query = "INSERT INTO tbl_slider(sliderName,slider_image,type) VALUES('$sliderName','$unique_image', '$type')";
+                    $result = $this->db->insert($query);
+                    
+                    if($result) {
+                        $alert = "<span class='success'>Slider Inserted Successfully</span>";
+                        return $alert;
+                    } else {
+                        $alert = "<span class='error'>Slider Insert Failed</span>";
+                        return $alert;    
+                    }
+                }
+                
+            }
+        }
+        public function show_slider(){
+            $query = "SELECT * FROM tbl_slider WHERE type = '1' ORDER BY sliderId DESC";
+            $result = $this->db->select($query);
+            return $result;
+        }
+        public function show_slider_list(){
+            $query = "SELECT * FROM tbl_slider ORDER BY sliderId DESC";
+            $result = $this->db->select($query);
+            return $result;
+        }
+        public function updateSlider($id, $type){
+            $type = mysqli_real_escape_string($this->db->link, $type);
+            $query = "UPDATE tbl_slider SET type = '$type' WHERE sliderId = '$id'";
+            $result = $this->db->update($query);
+            if($result) {
+                $msg = "<span class='success'>Slider Updated Successfully</span>";
+                return $msg;
+            } else {
+                $msg = "<span class='error'>Slider Updated Failed</span>";
+                return $msg;    
+            }
+        }
+        public function deleteSlider($id){
+            $query = "DELETE FROM tbl_slider WHERE sliderId = '$id'";
+            $result = $this->db->delete($query);
+            if($result) {
+                $msg = "<span class='success'>Slider Deleted Successfully</span>";
+                return $msg;
+            } else {
+                $msg = "<span class='error'>Slider Deleted Failed</span>";
+                return $msg;    
+            }
+        }
+        public function search_product($tukhoa){
+            $tukhoa = mysqli_real_escape_string($this->db->link, $tukhoa);
+            $query = "SELECT * FROM tbl_product WHERE productName LIKE '%$tukhoa%' ORDER BY productId DESC";
+            $result = $this->db->select($query);
             return $result;
         }
     }

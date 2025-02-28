@@ -12,11 +12,11 @@
 	$customer_id = Session::get('customer_id');
 	if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['compare'])) {
 		$productid = $_POST['productid'];
-		$inserCompare = $product->inserCompare($productid, $customer_id);
+		$insertCompare = $product->insertCompare($productid, $customer_id);
     }
 	if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['wishlist'])) {
 		$productid = $_POST['productid'];
-		$inserCompare = $product->inserWishlist($productid, $customer_id);
+		$insertCompare = $product->inserWishlist($productid, $customer_id);
     }
 	if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 		$quantity = $_POST['quantity'];
@@ -41,14 +41,15 @@
 				<div class="cont-desc span_1_of_2">				
 					<div class="grid images_3_of_2">
 					<img src="admin/uploads/<?php echo $result_details['image']?>" alt="Ảnh sản phẩm" />
-					</div>
+				</div>
 				<div class="desc span_3_of_2">
 					<h2><?php echo $result_details['productName']?></h2>
 					<p><?php echo $fm->textShorten($result_details['product_desc'], 150)?></p>					
 					<div class="price">
-						<p>Price: <span>$<?php echo $result_details['price']?></span></p>
+						<p>Price: <span><?php echo $fm->format_currency($result_details['price']).' VND'?></span></p>
 						<p>Category: <span><?php echo $result_details['catName']?></span></p>
 						<p>Brand:<span><?php echo $result_details['brandName']?></span></p>
+					</div>
 				</div>
 				<div class="add-cart">
 					<form action="" method="post">
@@ -86,8 +87,8 @@
 					<div class="clear"></div>
 					<p>
 					<?php
-							if(isset($inserCompare)){
-								echo $inserCompare;
+							if(isset($insertCompare)){
+								echo $insertCompare;
 							}
 							?>
 					<?php
