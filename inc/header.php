@@ -105,11 +105,19 @@
 	  <li><a href="topbrands.php">Top Brands</a></li>
 	  <li><a href="cart.php">Cart</a></li>
 	  <?php
+	//   $customer_id = Session::get('customer_id');
+	//   $check_order = $ct->check_order($customer_id);
+	//   if(isset($check_order)) {
+    //       echo '<li><a href="orderdetails.php">Ordered</a></li>';
+    //   }
+	  ?>
+	  <?php
 	  $login_check = Session::get('customer_login');
 	  if($login_check) {
           echo '<li><a href="profile.php">Profile</a></li>';
       }
 	  ?>
+	  <li><a href="compare.php">Compare</a> </li>
 	  <li><a href="contact.php">Contact</a> </li>
 	  <div class="clear"></div>
 	</ul>

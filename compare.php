@@ -2,7 +2,7 @@
 	include 'inc/header.php';
 	// include 'inc/slider.php';
 ?>
-<?php
+<!-- <?php
     if(isset($_GET['cartid'])) {
         $cartId = $_GET['cartid'];
 		$delcart = $ct->delete_product_cart($cartId);
@@ -15,17 +15,17 @@
 			$delcart = $ct->delete_product_cart($cartId);
 		}
     }
-?>
-<?php
+?> -->
+<!-- <?php
 	if(!isset($_GET['id'])){
 		echo "<meta http-equiv='refresh' content='0;URL=?id=live'>";
 	}
-?>
+?> -->
  <div class="main">
     <div class="content">
     	<div class="cartoption">		
 			<div class="cartpage">
-			    	<h2>Your Cart</h2>
+			    	<h2>Compare Product</h2>
 					<?php
 						if(isset($updateQuantityCart)){
 							echo $updateQuantityCart;

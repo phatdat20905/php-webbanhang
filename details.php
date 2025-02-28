@@ -45,6 +45,10 @@
 						?>
 					</form>				
 				</div>
+				<div class="add-cart">
+					<a href="" class="buysubmit">Save to Wishlist</a>			
+					<a href="" class="buysubmit">Compare Product</a>			
+				</div>
 		</div>
 			<div class="product-desc">
 			<h2>Product Details</h2>
