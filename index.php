@@ -54,6 +54,19 @@
 					}
 				?>
 			</div>
+		<div class="">
+			<?php
+			$product_all = $product->get_all_product();
+			$product_count = mysqli_num_rows($product_all);
+			$product_button = ceil($product_count/4);
+			$i = 1;
+			echo '<p>Trang: </p>';
+			while ($i <= $product_button){
+                echo '<a href="?trang='.$i.'">'.$i.'</a> | ';
+                $i++;
+            }
+			?>
+		</div>
     </div>
  </div>
 

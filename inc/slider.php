@@ -78,7 +78,7 @@
 			</div>
 		  <div class="clear"></div>
 		</div>
-			 <div class="header_bottom_right_images">
+		<div class="header_bottom_right_images">
 		   <!-- FlexSlider -->
              
 			<section class="slider">

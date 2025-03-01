@@ -14,6 +14,26 @@
             $this->db = new Database();
             $this->fm = new Format();
         }
+        public function insert_comment(){
+            $commentName = $_POST['commentName'];
+            $comment = $_POST['comment'];
+            $productId = $_POST['productId'];
+            if($commentName == '' || $comment == '' || $productId == '') {
+                $alert = "<span class='error'>Fields must be not empty</span>";
+                return $alert;
+            } else {
+                $query = "INSERT INTO tbl_comment(commentName,comment,productId) VALUES('$commentName','$comment','$productId')";
+                $result = $this->db->insert($query);
+                
+                if($result) {
+                    $alert = "<span class='success'>Comment Inserted Successfully</span>";
+                    return $alert;
+                } else {
+                    $alert = "<span class='error'>Comment Insert Failed</span>";
+                    return $alert;
+                }
+            }
+        }
         public function insert_customer($data){
             $name = mysqli_real_escape_string($this->db->link, $data['name']);
             $city = mysqli_real_escape_string($this->db->link, $data['city']);

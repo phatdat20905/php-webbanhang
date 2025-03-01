@@ -2,7 +2,6 @@
 	include 'inc/header.php';
 	// include 'inc/slider.php';
 ?>
-
 <?php
     if(!isset($_GET['proid']) || $_GET['proid'] == NULL) {
         echo "<script>window.location='404.php';</script>";
@@ -22,6 +21,9 @@
 		$quantity = $_POST['quantity'];
 		$AddtoCart = $ct->add_to_cart($quantity, $id);
     }
+	if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitComment'])) {
+		$insertComment = $cs->insert_comment();
+    }
 ?>
 <style type="text/css">
 	.bt-details input[type=submit]{
@@ -29,7 +31,6 @@
 		margin: 5px;
 	}
 </style>
-
  <div class="main">
     <div class="content">
     	<div class="section group">
@@ -40,8 +41,8 @@
 			?>
 				<div class="cont-desc span_1_of_2">				
 					<div class="grid images_3_of_2">
-					<img src="admin/uploads/<?php echo $result_details['image']?>" alt="Ảnh sản phẩm" />
-				</div>
+						<img src="images/preview-img.jpg" alt="" />
+					</div>
 				<div class="desc span_3_of_2">
 					<h2><?php echo $result_details['productName']?></h2>
 					<p><?php echo $fm->textShorten($result_details['product_desc'], 150)?></p>					
@@ -50,7 +51,6 @@
 						<p>Category: <span><?php echo $result_details['catName']?></span></p>
 						<p>Brand:<span><?php echo $result_details['brandName']?></span></p>
 					</div>
-				</div>
 				<div class="add-cart">
 					<form action="" method="post">
 						<input type="number" class="buyfield" name="quantity" value="1" min="1"/>
@@ -61,7 +61,7 @@
 							echo '<span style="color:red;font-size:10px;">Product Already Exits</span>';
 						}
 						?>
-					</form>				
+					</form>					
 				</div>
 				<div class="add-cart">
 					<div class="bt-details">
@@ -99,18 +99,17 @@
 					</p>            
                 </div>
 			</div>
-		</div>
 			<div class="product-desc">
 			<h2>Product Details</h2>
 			<?php echo $fm->textShorten($result_details['product_desc'], 150)?>
 	    </div>
-	</div>
-	<?php
+		<?php
 		}
 	}
-	?>
+	?>			
+	</div>
 		<div class="rightsidebar span_3_of_1">
-			<h2>CATEGORIES</h2>
+		<h2>CATEGORIES</h2>
 			<ul>
 			<?php 
 			$getall_category = $cat->show_category_fontend();
@@ -124,6 +123,20 @@
 			</ul>
 
 		</div>
+	</div>
+	<div class="comment">
+		<h2>Ý kiến sản phẩm</h2>
+		<?php
+		if(isset($insertComment)){
+			echo $insertComment;
+		}
+		?>
+        <form action="" method="post">
+            <input type="hidden" name="productId" value="<?php echo $id?>">
+            <p><input type="text" name="commentName" placeholder="Tên của bạn"></p>
+            <p><textarea rows="5" name="comment" placeholder="Bình luận của bạn"></textarea></p>
+            <input type="submit" name="submitComment" value="Gửi bình luân">
+        </form>
 	</div>
 </div>
 

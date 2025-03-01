@@ -18,7 +18,9 @@
 	$cat = new Category();
 	$cs = new Customer();
 	$product = new Product();
-	
+	$post = new Post();
+	$blog = new Blog();
+	$brand = new Brand();
 ?>
 <?php
   header("Cache-Control: no-cache, must-revalidate");
