@@ -39,6 +39,14 @@
                         <input type="text" value="<?php echo $result_product['productName']?>" name="productName" class="medium" />
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <label>Product Quantity</label>
+                    </td>
+                    <td>
+                        <input type="number" name="productQuantity" min="1" value="<?php echo $result_product['productQuantity']?>" placeholder="Nhập số lượng..." class="medium" />
+                    </td>
+                </tr>
 				<tr>
                     <td>
                         <label>Category</label>

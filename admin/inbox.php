@@ -9,15 +9,11 @@ include_once ($filepath.'/../helpers/format.php');
 	$ct = new Cart();
 	if(isset($_GET['shiftid'])){
 		$id = $_GET['shiftid'];
-		$time = $_GET['time'];
-		$price = $_GET['price'];
-		$shifted = $ct->shifted($id, $time, $price);
+		$shifted = $ct->shifted($id);
 	}
 	if(isset($_GET['delid'])){
 		$id = $_GET['delid'];
-		$time = $_GET['time'];
-		$price = $_GET['price'];
-		$delShifted = $ct->delShifted($id, $time, $price);
+		$delShifted = $ct->delShifted($id);
 	}
 ?>
         <div class="grid_10">
@@ -37,12 +33,10 @@ include_once ($filepath.'/../helpers/format.php');
 						<tr>
 							<th>No.</th>
 							<th>Order Time</th>
-							<th>Product</th>
-							<th>Quantity</th>
-							<th>Price</th>
-							<th>Customer ID</th>
-							<th>Address</th>
+							<th>Order Code</th>
+							<th>Customer Name</th>
 							<th>Action</th>
+							<th>Status</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -57,25 +51,23 @@ include_once ($filepath.'/../helpers/format.php');
 						?>
 						<tr class="odd gradeX">
 							<td><?php echo $i;?></td>
-							<td><?php echo $fm->formatDate($result['date_order'])?></td>
-							<td><?php echo $result['productName']?></td>
-							<td><?php echo $result['quantity']?></td>
-							<td><?php echo $result['price'].' VND'?></td>
-							<td><?php echo $result['customer_id']?></td>
-							<td><a href="customer.php?customerid=<?php echo $result['customer_id']?>">View Address</a></td>
+							<td><?php echo $fm->formatDate($result['date_created'])?></td>
+							<td><?php echo $result['order_code']?></td>
+							<td><?php echo $result['name']?></td>
+							<td><a href="customer.php?customerid=<?php echo $result['customer_id']?>&order_code=<?php echo $result['order_code']?>">View Order</a></td>
 							<td>
 								<?php
 									if($result['status'] == 0){
 									?>
-									<a href="?shiftid=<?php echo $result['id']?>&price=<?php echo $result['price']?>&time=<?php echo $result['date_order']?>">Pending</a>
+									<a href="?shiftid=<?php echo $result['order_code']?>">Tình trạng mới</a>
 								<?php
 									} elseif($result['status'] == 1){
-										echo 'Shifting...';
+										echo 'Đang vận chuyển...';
                                     ?>
 								<?php
 									} elseif($result['status'] == 2) {
 									?>
-									<a href="?delid=<?php echo $result['id']?>&price=<?php echo $result['price']?>&time=<?php echo $result['date_order']?>">Remove</a>
+									<a href="?delid=<?php echo $result['order_code']?>">Đã nhận | Xóa</a>
 									<?php
 									}
 								?>

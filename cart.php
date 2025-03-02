@@ -9,8 +9,9 @@
     }
 	if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 		$cartId = $_POST['cartId'];
+		$stock = $_POST['stock'];
 		$quantity = $_POST['quantity'];
-		$updateQuantityCart = $ct->update_quantity_cart($quantity, $cartId);
+		$updateQuantityCart = $ct->update_quantity_cart($quantity, $cartId, $stock);
 		if($quantity == 0) {
 			$delcart = $ct->delete_product_cart($cartId);
 		}
@@ -37,6 +38,7 @@
 						<table class="tblone">
 							<tr>
 								<th width="20%">Product Name</th>
+								<th width="20%">Product Stock</th>
 								<th width="10%">Image</th>
 								<th width="15%">Price</th>
 								<th width="25%">Quantity</th>
@@ -52,13 +54,15 @@
 							?>
 							<tr>
 								<td><?php echo $result['productName']?></td>
+								<td><?php echo $result['stock']?></td>
 								<td><img src="admin/uploads/<?php echo $result['image']?>" alt="Ảnh sản phẩm"/></td>
 								<td><?php echo $fm->format_currency($result['price']).' VND'?></td>
 								<td>
 									<form action="" method="post">
 										<input type="hidden" name="cartId" value="<?php echo $result['cartId']?>"/>
+										<input type="hidden" name="stock" value="<?php echo $result['stock']?>"/>
 										<input type="number" name="quantity" min="0" value="<?php echo $result['quantity']?>"/>
-										<input type="submit" name="submit" value="Update"/>
+										<input type="submit" name="submit" value="Cập nhật"/>
 									</form>
 								</td>
 								<td>

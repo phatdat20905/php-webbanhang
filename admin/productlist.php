@@ -26,6 +26,7 @@
 				<tr>
 					<th>ID</th>
 					<th>Product Name</th>
+					<th>Product Quantity</th>
 					<th>Product Price</th>
 					<th>Product Image</th>
 					<th>Category</th>
@@ -46,6 +47,7 @@
 				<tr class="odd gradeX">
 					<td><?php echo $i?></td>
 					<td><?php echo $result['productName']?></td>
+					<td><?php echo $result['productQuantity']?></td>
 					<td><?php echo $fm->format_currency($result['price']).' VND'?></td>
 					<td><img src="uploads/<?php echo $result['image']?>" alt="Ảnh sản phẩm" width="80"></td>
 					<td><?php echo $result['catName']?></td>

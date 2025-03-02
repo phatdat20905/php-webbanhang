@@ -134,6 +134,7 @@
           echo '<li><a href="profile.php">Profile</a></li>';
           echo '<li><a href="compare.php">Compare</a></li>';
           echo '<li><a href="wishlist.php">Wishlist</a></li>';
+          echo '<li><a href="history_order.php">Lịch sử đơn hàng</a></li>';
       }
 	  ?>
 	  <li><a href="contact.php">Contact</a> </li>

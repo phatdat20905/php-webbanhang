@@ -91,6 +91,11 @@
             $result = $this->db->select($query);
             return $result;
         }
+        public function show_order($order_code){
+            $query = "SELECT * FROM tbl_order WHERE order_code = $order_code";
+            $result = $this->db->select($query);
+            return $result;
+        }
         public function getCustomerById($id){
             $query = "SELECT * FROM tbl_customer WHERE id = '$id'";
             $result = $this->db->select($query);

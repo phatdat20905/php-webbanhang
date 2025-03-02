@@ -17,6 +17,7 @@
         
         public function insert_product($data, $files) {
             $productName = mysqli_real_escape_string($this->db->link, $data['productName']);
+            $productQuantity = mysqli_real_escape_string($this->db->link, $data['productQuantity']);
             $category = mysqli_real_escape_string($this->db->link, $data['category']);
             $brand = mysqli_real_escape_string($this->db->link, $data['brand']);
             $product_desc = mysqli_real_escape_string($this->db->link, $data['product_desc']);
@@ -34,12 +35,12 @@
             $unique_image = substr(md5(time()), 0, 10). '.'. $file_ext;
             $uploaded_image = "uploads/".$unique_image;
 
-            if($productName == '' || $brand == '' || $category == '' || $product_desc == '' || $price == '' || $type == '' || $file_name == '') {
+            if($productName == '' || $productQuantity == '' || $brand == '' || $category == '' || $product_desc == '' || $price == '' || $type == '' || $file_name == '') {
                 $alert = "<span class='error'>Fields must be not empty</span>";
                 return $alert;
             } else {
                 move_uploaded_file($file_temp, $uploaded_image);
-                $query = "INSERT INTO tbl_product(productName,catId,brandId,product_desc,type,price,image) VALUES('$productName','$category', '$brand', '$product_desc','$type', '$price', '$unique_image')";
+                $query = "INSERT INTO tbl_product(productName,productQuantity,catId,brandId,product_desc,type,price,image) VALUES('$productName','$productQuantity','$category', '$brand', '$product_desc','$type', '$price', '$unique_image')";
                 $result = $this->db->insert($query);
                 
                 if($result) {
@@ -63,6 +64,7 @@
         
         public function update_product($data, $files, $id) {
             $productName = mysqli_real_escape_string($this->db->link, $data['productName']);
+            $productQuantity = mysqli_real_escape_string($this->db->link, $data['productQuantity']);
             $category = mysqli_real_escape_string($this->db->link, $data['category']);
             $brand = mysqli_real_escape_string($this->db->link, $data['brand']);
             $product_desc = mysqli_real_escape_string($this->db->link, $data['product_desc']);
@@ -79,7 +81,7 @@
             $file_ext = strtolower(end($div));
             $unique_image = substr(md5(time()), 0, 10). '.'. $file_ext;
             $uploaded_image = "uploads/".$unique_image;
-            if($productName == '' || $brand == '' || $category == '' || $product_desc == '' || $price == '' || $type == '') {
+            if($productName == '' || $productQuantity == '' || $brand == '' || $category == '' || $product_desc == '' || $price == '' || $type == '') {
                 $alert = "<span class='error'>Fields must be not empty</span>";
                 return $alert;
             } else {
@@ -93,7 +95,8 @@
                         return $alert;
                     }
                     $query = "UPDATE tbl_product SET 
-                    productName='$productName', 
+                    productName='$productName',
+                    productQuantity='$productQuantity, 
                     catId='$category', 
                     brandId='$brand', 
                     product_desc='$product_desc', 
@@ -104,6 +107,7 @@
                 } else{
                     $query = "UPDATE tbl_product SET 
                     productName='$productName', 
+                    productQuantity = $productQuantity,
                     catId='$category', 
                     brandId='$brand', 
                     product_desc='$product_desc', 

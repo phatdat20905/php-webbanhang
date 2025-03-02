@@ -18,8 +18,9 @@
 		$insertCompare = $product->inserWishlist($productid, $customer_id);
     }
 	if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+		$product_stock = $_POST['product_stock'];
 		$quantity = $_POST['quantity'];
-		$AddtoCart = $ct->add_to_cart($quantity, $id);
+		$AddtoCart = $ct->add_to_cart($quantity,$product_stock, $id);
     }
 	if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submitComment'])) {
 		$insertComment = $cs->insert_comment();
@@ -50,18 +51,24 @@
 						<p>Price: <span><?php echo $fm->format_currency($result_details['price']).' VND'?></span></p>
 						<p>Category: <span><?php echo $result_details['catName']?></span></p>
 						<p>Brand:<span><?php echo $result_details['brandName']?></span></p>
+						<p>Brand:<span><?php echo $result_details['productQuantity']?></span></p>
 					</div>
 				<div class="add-cart">
 					<form action="" method="post">
+						<input type="hidden" name="product_stock" value="<?php echo $result_details['productQuantity']?>">
 						<input type="number" class="buyfield" name="quantity" value="1" min="1"/>
-						<input type="submit" class="buysubmit" name="submit" value="Buy Now"/>
+						<?php 
+						if($result_details['productQuantity'] > 0) {
+							echo '<input type="submit" class="buysubmit" name="submit" value="Buy Now"/>';
+						}
+						?>
 						
-						<?php
+					</form>
+					<?php
 						if(isset($AddtoCart)){
 							echo '<span style="color:red;font-size:10px;">Product Already Exits</span>';
 						}
-						?>
-					</form>					
+						?>					
 				</div>
 				<div class="add-cart">
 					<div class="bt-details">

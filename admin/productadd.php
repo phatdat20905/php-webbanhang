@@ -23,10 +23,18 @@
                
                 <tr>
                     <td>
-                        <label>Name</label>
+                        <label>Product Name</label>
                     </td>
                     <td>
                         <input type="text" name="productName" placeholder="Thêm sản tên phẩm..." class="medium" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Product Quantity</label>
+                    </td>
+                    <td>
+                        <input type="number" name="productQuantity" min="1" value="5" placeholder="Thêm sản tên phẩm..." class="medium" />
                     </td>
                 </tr>
 				<tr>
