@@ -43,6 +43,7 @@
 								<th width="15%">Price</th>
 								<th width="25%">Quantity</th>
 								<th width="20%">Total Price</th>
+								<th width="10%">Buy</th>
 								<th width="10%">Action</th>
 							</tr>
 							<?php
@@ -70,6 +71,14 @@
 								$total = $result['price'] * $result['quantity'];
 								echo $total;
 								?>
+								</td>
+								<td>
+								<form>
+									<input type="checkbox" 
+									<?php echo $result['status'] == 1 ? 'checked' : ''?> 
+									class="buy_checked" id="buy" name="buy" value="<?php echo $result['cartId']?>">
+									<label for="buy">Mua hàng</label><br>
+								</form>
 								</td>
 								<td><a onclick="return confirm('Are you sure you want to delete <?php echo $result['productName']?>?')"
 									href="?cartid=<?php echo $result['cartId']?>">Xóa</a></td>
@@ -129,6 +138,7 @@
        <div class="clear"></div>
     </div>
  </div>
+
  <?php 
 	include 'inc/footer.php';
 ?>

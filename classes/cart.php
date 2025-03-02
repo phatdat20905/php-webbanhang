@@ -60,6 +60,12 @@ include_once ($filepath.'/../helpers/format.php');
             $result = $this->db->select($query);
             return $result;
         }
+        public function get_product_cart_checkout() {
+            $sId = session_id();
+            $query = "SELECT * FROM tbl_cart WHERE sId = '$sId' AND tbl_cart.status = 1";
+            $result = $this->db->select($query);
+            return $result;
+        }
         
         public function update_quantity_cart($quantity, $cartId, $stock) {
             $quantity = $this->fm->validation($quantity);

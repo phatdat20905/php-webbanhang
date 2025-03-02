@@ -6,8 +6,8 @@
     if(!isset($_GET['orderid']) || $_GET['orderid'] =='order') {
 		$customer_id = Session::get('customer_id');
 		$inserOrder = $ct->insertOrder($customer_id);
-		$delcart = $ct->del_all_data_cart();
-		header('Location:success.php');
+		// $delcart = $ct->del_all_data_cart();
+		// header('Location:success.php');
 	}
 ?>
 <style type="text/css">
@@ -64,7 +64,7 @@
 								</tr>
 								<tr>
 								<?php
-								$get_product_cart = $ct->get_product_cart();
+								$get_product_cart = $ct->get_product_cart_checkout();
 								if($get_product_cart){
 									$subtotal = 0;
 									$qty = 0;

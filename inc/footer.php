@@ -55,6 +55,32 @@
 		   </div>
      </div>
     </div>
+	<script>
+	$('.buy_checked').change(function(){
+		var id_cart = $(this).val();
+        if($(this).is(':checked')){
+			var cart_status = 1;
+			$.ajax({
+				url: 'ajax/stick_buy.php',
+                type: 'post',
+                data: {id_cart: id_cart, cart_status: cart_status},
+                success: function(response){
+                    console.log(response);
+                }
+			})
+		} else {
+			var cart_status = 0;
+            $.ajax({
+                url: 'ajax/stick_buy.php',
+                type: 'post',
+                data: {id_cart: id_cart, cart_status: cart_status},
+                success: function(response){
+                    console.log(response);
+                }
+            })
+		}
+	})
+ </script>
     <script type="text/javascript">
 		$(document).ready(function() {
 			/*
