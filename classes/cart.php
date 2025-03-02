@@ -40,7 +40,6 @@ include_once ($filepath.'/../helpers/format.php');
                     $query_insert = "INSERT INTO tbl_cart(stock,productId,sId,productName,price,quantity,image) 
                     VALUES('$product_stock', '$id','$sId', '$productName', '$price','$quantity', '$image')";
                     $insert_cart = $this->db->insert($query_insert);
-                    
                     if($insert_cart) {
                         header('Location:cart.php');
                     } else {

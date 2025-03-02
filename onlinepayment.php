@@ -10,7 +10,7 @@
     }
 	if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 		$quantity = $_POST['quantity'];
-		$AddtoCart = $ct->add_to_cart($quantity, $id);
+		// $AddtoCart = $ct->add_to_cart($quantity, $id);
     }
 ?> -->
 <style>

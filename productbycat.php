@@ -9,6 +9,17 @@
         $id = $_GET['catId'];
     }
 ?>
+<?php
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['themgiohang'])) {
+	$product_stock = $_POST['product_stock'];
+	$quantity = $_POST['quantity'];
+	$id = $_POST['productId'];
+	$AddtoCart = $ct->add_to_cart($quantity,$product_stock, $id);
+	if($AddtoCart){
+		echo "<script>window.location='cart.php';</script>";
+	}
+}
+?>
  <div class="main">
     <div class="content">
 		<?php 
@@ -34,6 +45,12 @@
 					 <h2><?php echo $result_pro['productName']?></h2>
 					 <p><?php echo $fm->textShorten($result_pro['productName'], 50)?></p>
 					 <p><span class="price"><?php echo $result_pro['price'].' VND'?></span></p>
+					 <form method="post">
+						<input type="hidden" name="product_stock" value="<?php echo $result_pro['productQuantity']?>">
+						<input type="hidden" name="quantity" value="1"/>
+						<input type="hidden" name="productId" value="<?php echo $result_pro['productId']?>"/>
+						<input type="submit" name="themgiohang" value="Thêm giỏ hàng" class="button"/>
+					 </form>
 				     <div class="button"><span><a href="details.php?proid=<?php echo $result_pro['productId']?>" class="details">Details</a></span></div>
 				</div>
 				<?php 

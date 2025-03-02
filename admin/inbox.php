@@ -10,15 +10,21 @@ include_once ($filepath.'/../helpers/format.php');
 	if(isset($_GET['shiftid'])){
 		$id = $_GET['shiftid'];
 		$shifted = $ct->shifted($id);
+		if($shifted){
+			echo "<script>window.location='inbox.php';</script>";
+		}
 	}
 	if(isset($_GET['delid'])){
 		$id = $_GET['delid'];
 		$delShifted = $ct->delShifted($id);
+		if($delShifted){
+            echo "<script>window.location='inbox.php';</script>";
+        }
 	}
 ?>
         <div class="grid_10">
             <div class="box round first grid">
-                <h2>Inbox</h2>
+                <h2>Đơn hàng đã đặt</h2>
                 <div class="block">
 					<?php
 					if(isset($shifted)){

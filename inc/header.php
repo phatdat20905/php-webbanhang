@@ -110,7 +110,6 @@
 	  <li><a href="index.php">Home</a></li>
 	  <li><a href="products.php">Products</a> </li>
 	  <li><a href="topbrands.php">Top Brands</a></li>
-	  <li><a href="cart.php">Cart</a></li>
 	  <?php
 	  $check_cart = $ct->check_cart();
 	  if($check_cart == true) {

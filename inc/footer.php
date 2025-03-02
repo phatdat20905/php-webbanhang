@@ -112,5 +112,63 @@
 		  });
 		});
 	  </script>
+	  <script>
+				 function remove_background(product_id)
+					{
+						for(var count = 1; count <= 5; count++)
+						{
+						$('#'+product_id+'-'+count).css('color', '#ccc'); 
+						}
+					}
+					//hover chuột đánh giá sao
+					$(document).on('mouseenter', '.rating', function(){
+							var index = $(this).data("index"); //3
+							var product_id = $(this).data('product_id'); //13
+						
+							// alert(index);
+							// alert(product_id);
+							remove_background(product_id);
+							for(var count = 1; count<=index; count++)
+							{
+							$('#'+product_id+'-'+count).css('color', '#ffcc00');
+							}
+					});
+					  //nhả chuột ko đánh giá
+						$(document).on('mouseleave', '.rating', function(){
+							var index = $(this).data("index");
+							var product_id = $(this).data('product_id');
+							var rating = $(this).data("rating");
+							remove_background(product_id);
+							//alert(rating);
+							for(var count = 1; count<=rating; count++)
+							{
+							$('#'+product_id+'-'+count).css('color', '#ffcc00');
+							}
+							});
+
+				</script>
+				<script>
+					 $('.rating').click(function(){
+						var index = $(this).data("index"); //3
+						var product_id = $(this).data('product_id');
+						var customer_id = $(this).data('customer_id');
+						$.ajax(
+								{ url: 'ajax/rating.php',
+									data: {index:index, product_id:product_id, customer_id:customer_id},
+									type: 'POST',
+									success: function(data) {
+										
+											alert('Đánh giá '+index+' sao thành công');
+										
+											
+
+											}
+							});
+					})
+					$('.rating_login').click(function(){
+						alert('Vui lòng đăng nhập để đánh giá sản phẩm');
+                        window.location.href = "login.php";
+					})
+				</script>
 </body>
 </html>

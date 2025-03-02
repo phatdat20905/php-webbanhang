@@ -355,5 +355,10 @@
             $result = $this->db->select($query);
             return $result;
         }
+        public function get_start($id, $customer_id){
+            $query = "SELECT * FROM tbl_rating WHERE product_id = '$id' AND customer_id = $customer_id";
+            $result = $this->db->select($query);
+            return $result;
+        }
     }
 ?>

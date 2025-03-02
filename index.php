@@ -2,13 +2,23 @@
 	include 'inc/header.php';
 	include 'inc/slider.php';
 ?>
-
+<?php
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['themgiohang'])) {
+	$product_stock = $_POST['product_stock'];
+	$quantity = $_POST['quantity'];
+	$id = $_POST['productId'];
+	$AddtoCart = $ct->add_to_cart($quantity,$product_stock, $id);
+	if($AddtoCart){
+		echo "<script>window.location='cart.php';</script>";
+	}
+}
+?>
 
  <div class="main">
     <div class="content">
     	<div class="content_top">
     		<div class="heading">
-    		<h3>Feature Products</h3>
+    		<h3>Sản phẩm nổi bật</h3>
     		</div>
     		<div class="clear"></div>
     	</div>
@@ -23,6 +33,12 @@
 					 <h2><?php echo $result['productName']?></h2>
 					 <p><?php echo $fm->textShorten($result['product_desc'], 30)?></p>
 					 <p><span class="price"><?php echo $fm->format_currency($result['price']).' VND'?></span></p>
+					 <form method="post">
+						<input type="hidden" name="product_stock" value="<?php echo $result['productQuantity']?>">
+						<input type="hidden" name="quantity" value="1"/>
+						<input type="hidden" name="productId" value="<?php echo $result['productId']?>"/>
+						<input type="submit" name="themgiohang" value="Thêm giỏ hàng" class="button"/>
+					 </form>
 				     <div class="button"><span><a href="details.php?proid=<?php echo $result['productId']?>" class="details">Details</a></span></div>
 				</div>
 				<?php
@@ -47,6 +63,12 @@
 					 <h2><?php echo $result_new['productName']?></h2>
 					 <p><?php echo $fm->textShorten($result_new['product_desc'], 30)?></p>
 					 <p><span class="price"><?php echo $result_new['price']." VND"?></span></p>
+					 <form method="post">
+						<input type="hidden" name="product_stock" value="<?php echo $result_new['productQuantity']?>">
+						<input type="hidden" name="quantity" value="1"/>
+						<input type="hidden" name="productId" value="<?php echo $result_new['productId']?>"/>
+						<input type="submit" name="themgiohang" value="Thêm giỏ hàng" class="button"/>
+					 </form>
 				     <div class="button"><span><a href="details.php?proid=<?php echo $result_new['productId']?>" class="details">Details</a></span></div>
 				</div>
 				<?php

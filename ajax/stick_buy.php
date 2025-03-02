@@ -8,8 +8,6 @@
     $db = new Database();
     $id_cart = $_POST['id_cart'];
     $cart_status = $_POST['cart_status'];
-    echo $cart_status;
-    echo $id_cart;
 
     $query = "UPDATE tbl_cart SET tbl_cart.status='$cart_status' WHERE cartId='$id_cart'";
     $result = $db->update($query);

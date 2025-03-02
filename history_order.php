@@ -12,6 +12,9 @@
 	if(isset($_GET['confirm'])){
 		$id = $_GET['confirm'];
 		$confirm_recieved = $ct->confirm_recieved($id);
+		if($confirm_recieved){
+            echo "<script>window.location='history_order.php';</script>";
+        }
 	}
 ?>
 <style>

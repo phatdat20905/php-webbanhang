@@ -42,7 +42,7 @@
 			?>
 				<div class="cont-desc span_1_of_2">				
 					<div class="grid images_3_of_2">
-						<img src="images/preview-img.jpg" alt="" />
+					<img src="admin/uploads/<?php echo $result_details['image']?>" alt="Ảnh sản phẩm"/>
 					</div>
 				<div class="desc span_3_of_2">
 					<h2><?php echo $result_details['productName']?></h2>
@@ -133,17 +133,73 @@
 	</div>
 	<div class="comment">
 		<h2>Ý kiến sản phẩm</h2>
+		<ul>
 		<?php
-		if(isset($insertComment)){
-			echo $insertComment;
+		    if(Session::get('customer_id')){
+				$customer_id = Session::get('customer_id');
+				$get_star = $product->get_start($id, $customer_id);
+				if($get_star) {
+					$tongsao = 0;
+					$trungbingsao = 0;
+					$solan = 0;
+                    while($result_star = $get_star->fetch_assoc()) {
+						$tongsao += $result_star['rating'];
+						$solan +=1;
+						
+					}
+					$trungbingsao = $tongsao/$solan;
+				}
+			}
+		    
+			$get_product_details = $product->get_product_details($id);
+			if($get_product_details) {
+				while($result_details = $get_product_details->fetch_assoc()) {
+		?>
+		<?php
+		for($count = 1; $count <=5; $count++) {
+			if($count<=round($trungbingsao)){
+				$color = 'color:#ffcc00;';
+			}else {
+				$color = 'color:#ccc;';
+			}
+			if(Session::get('customer_login')){
+		?>
+		    <li 
+				class="rating" style="cursor:pointer;font-size:30px;<?php echo $color?>"
+				id = "<?php echo $result_details['productId']?>-<?php echo $count?>"
+				data-product_id = "<?php echo $result_details['productId']?>"
+				data-rating = "<?php echo $count?>"
+				data-index = "<?php echo $count?>"
+				data-customer_id = "<?php echo Session::get('customer_id')?>"
+				>&#9733;
+			</li>
+			<?php
+			} else{	
+			?>
+			<li 
+				class="rating_login" style="cursor:pointer;font-size:30px;color:#ccc;display:inline-block;"
+				>&#9733;
+			</li>
+			<?php }?>
+		<?php
 		}
 		?>
-        <form action="" method="post">
-            <input type="hidden" name="productId" value="<?php echo $id?>">
-            <p><input type="text" name="commentName" placeholder="Tên của bạn"></p>
-            <p><textarea rows="5" name="comment" placeholder="Bình luận của bạn"></textarea></p>
-            <input type="submit" name="submitComment" value="Gửi bình luân">
-        </form>
+		<p>Đã đánh giá: <?php echo round($trungbingsao)?>/5</p>
+		<?php
+				}}
+		?>
+		</ul>
+			<?php
+			if(isset($insertComment)){
+				echo $insertComment;
+			}
+			?>
+			<form action="" method="post">
+				<input type="hidden" name="productId" value="<?php echo $id?>">
+				<p><input type="text" name="commentName" placeholder="Tên của bạn"></p>
+				<p><textarea rows="5" name="comment" placeholder="Bình luận của bạn"></textarea></p>
+				<input type="submit" name="submitComment" value="Gửi bình luân">
+			</form>
 	</div>
 </div>
 
