@@ -157,11 +157,11 @@
 		?>
 		<?php
 		for($count = 1; $count <=5; $count++) {
-			if($count<=round($trungbingsao)){
-				$color = 'color:#ffcc00;';
-			}else {
-				$color = 'color:#ccc;';
-			}
+			// if($count<=round($trungbingsao)){
+			// 	$color = 'color:#ffcc00;';
+			// }else {
+			// 	$color = 'color:#ccc;';
+			// }
 			if(Session::get('customer_login')){
 		?>
 		    <li 
@@ -184,7 +184,7 @@
 		<?php
 		}
 		?>
-		<p>Đã đánh giá: <?php echo round($trungbingsao)?>/5</p>
+		<p>Đã đánh giá: //<?php echo round($trungbingsao)?>/5</p>
 		<?php
 				}}
 		?>

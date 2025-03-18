@@ -77,10 +77,10 @@ include_once ($filepath.'/../helpers/format.php');
                 $result = $this->db->update($query);
                 
                 if($result) {
-                    $msg = "<span class='success'>Cart quantity updated successfully</span>";
+                    $msg = "<span class='success'>Số lượng giỏ hàng được cập nhật thành công</span>";
                     return $msg;
                 } else {
-                    $msg = "<span class='error'>Cart quantity update failed</span>";
+                    $msg = "<span class='error'>Số lượng giỏ hàng được cập nhật thất bạibại</span>";
                     return $msg;
                 }
             } else {
