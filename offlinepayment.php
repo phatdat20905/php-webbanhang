@@ -123,7 +123,7 @@
 							</table>
 							<?php
 								}else{
-									echo "Your Cart is Empty! Please Shopping Now!";
+									echo "Giỏ hàng của bạn đang trống! Vui lòng mua sắm ngay!";
 								}  
 							?>
 					</div>

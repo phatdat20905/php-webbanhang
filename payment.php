@@ -46,13 +46,13 @@
     	<div class="section group">
 			<div class="content_top">
 				<div class="heading">
-				<h3>Payment Method</h3>
+				<h3>Phương thức thanh toán</h3>
 				</div>
 				<div class="clear"></div>
 				<div class="wrapper_method">
-					<h3>Choose Your Payment Method:</h3>
-                    <a href="offlinepayment.php">Offline Payment</a>
-                    <a href="onlinepayment.php">Online Payment</a> <br><br><br>
+					<h3>Chọn phương thức thanh toán của bạn:</h3>
+                    <a href="offlinepayment.php">Thanh toán khi nhận hàng</a>
+                    <a href="onlinepayment.php">Thanh toán online</a> <br><br><br>
 					<a href="cart.php" style="background-color: grey;"><< Previous</a>
 				</div>
 			</div>

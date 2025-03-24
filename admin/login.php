@@ -1,42 +1,93 @@
-<?php 
-	include '../classes/adminlogin.php';
-?>
 <?php
-    $class = new Adminlogin();
-	if($_SERVER['REQUEST_METHOD'] === 'POST') {
-		$adminUser = $_POST['adminUser'];
-        $adminPass = md5($_POST['adminPass']);
+    include 'inc/header.php';
+    $login_check = Session::get('customer_login');
+    if($login_check == true) {
+        header('Location:order.php');
+    }
 
-		$login_check = $class->login_admin($adminUser, $adminPass);
+    if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
+        $loginCustomer = $cs->login_customer($_POST);
     }
 ?>
+<div class="main">
+    <div class="content">
+        <div class="login_panel">
+            <h3>Existing Customers</h3>
+            <p>Sign in with the form below.</p>
+            <?php
+            if(isset($loginCustomer)){
+                echo $loginCustomer;
+            }
+            ?>
+            <form action="" method="POST">
+                <input name="email" type="text" class="field" placeholder="Enter Email...">
+                <input name="password" type="password" class="field" placeholder="Enter Password...">
+                <p class="note">If you forgot your password just enter your email and click <a href="#">here</a></p>
+                <div class="buttons"><input type="submit" class="grey" name="login" value="Sign In"></div>
+            </form>
+        </div>
+    </div>
+</div>
+<?php include 'inc/footer.php'; ?>
+<?php
+    include 'inc/header.php';
+    $login_check = Session::get('customer_login');
+    if($login_check == true) {
+        header('Location:order.php');
+    }
 
-<!DOCTYPE html>
-<head>
-<meta charset="utf-8">
-<title>Login</title>
-    <link rel="stylesheet" type="text/css" href="css/stylelogin.css" media="screen" />
-</head>
-<body>
-<div class="container">
-	<section id="content">
-		<form action="login.php" method="post">
-			<h1>Admin Login</h1>
-			<span style="color: red;"><?php echo isset($login_check)? $login_check : '';?></span> <!-- error message -->
-			<div>
-				<input type="text" placeholder="Username" required="" name="adminUser"/>
-			</div>
-			<div>
-				<input type="password" placeholder="Password" required="" name="adminPass"/>
-			</div>
-			<div>
-				<input type="submit" value="Log in" />
-			</div>
-		</form><!-- form -->
-		<div class="button">
-			<a href="#">Training with live project</a>
-		</div><!-- button -->
-	</section><!-- content -->
-</div><!-- container -->
-</body>
-</html>
+    if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
+        $loginCustomer = $cs->login_customer($_POST);
+    }
+?>
+<div class="main">
+    <div class="content">
+        <div class="login_panel">
+            <h3>Existing Customers</h3>
+            <p>Sign in with the form below.</p>
+            <?php
+            if(isset($loginCustomer)){
+                echo $loginCustomer;
+            }
+            ?>
+            <form action="" method="POST">
+                <input name="email" type="text" class="field" placeholder="Enter Email...">
+                <input name="password" type="password" class="field" placeholder="Enter Password...">
+                <p class="note">If you forgot your password just enter your email and click <a href="#">here</a></p>
+                <div class="buttons"><input type="submit" class="grey" name="login" value="Sign In"></div>
+            </form>
+        </div>
+    </div>
+</div>
+<?php include 'inc/footer.php'; ?>
+<?php
+    include 'inc/header.php';
+    $login_check = Session::get('customer_login');
+    if($login_check == true) {
+        header('Location:order.php');
+    }
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
+        $loginCustomer = $cs->login_customer($_POST);
+    }
+?>
+<div class="main">
+    <div class="content">
+        <div class="login_panel">
+            <h3>Existing Customers</h3>
+            <p>Sign in with the form below.</p>
+            <?php
+            if(isset($loginCustomer)){
+                echo $loginCustomer;
+            }
+            ?>
+            <form action="" method="POST">
+                <input name="email" type="text" class="field" placeholder="Enter Email...">
+                <input name="password" type="password" class="field" placeholder="Enter Password...">
+                <p class="note">If you forgot your password just enter your email and click <a href="#">here</a></p>
+                <div class="buttons"><input type="submit" class="grey" name="login" value="Sign In"></div>
+            </form>
+        </div>
+    </div>
+</div>
+<?php include 'inc/footer.php'; ?>

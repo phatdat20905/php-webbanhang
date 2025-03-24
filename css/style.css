@@ -316,9 +316,7 @@ input[type="number"] {
 .login {
   background: rgba(0, 0, 0, 0) url("../images/gradient_light-1.png") repeat-x
     scroll 0 0;
-  border: 1px solid #cecece;
   box-sizing: border-box;
-  color: #444;
   display: block;
   float: left;
   font-size: 27px;
@@ -328,37 +326,79 @@ input[type="number"] {
   width: 144px;
 }
 .login a {
-  color: #333;
+  color: #000;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s;
 }
 /*** Login ***/
 .register_account h3,
 .login_panel h3 {
   font-size: 22px;
-  color: #6c6c6c;
+  color: #000;
   font-family: "Monda", sans-serif;
   padding-bottom: 0.4em;
+  margin-bottom: 10px;
+  text-align: center;
 }
 .register_account {
-  background: #fff none repeat scroll 0 0;
-  border: 1px solid #c0bebe;
-  border-radius: 3px;
-  float: left;
-  height: 284px;
+  background: #fff;
   padding: 20px;
-  width: 712px;
+  border-radius: 8px;
+  width: 850px;
+  margin: 0 auto;
+  height: 350px;
 }
-.register_account form input[type="text"],
-.register_account form select {
-  font-size: 12px;
-  color: #b3b1b1;
+.register_account form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.register_account .submit p {
+  margin: 0;
+  font-size: 14px;
+  color: #454545;
+}
+.register_account .submit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  text-align: center;
+}
+.register_account .submit .login-link {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+}
+.register_account form input[type="password"] {
+  font-size: 14px;
+  color: #000;
   padding: 8px;
   outline: none;
   margin: 5px 0;
   width: 340px;
+  border: 1.5px solid #000;
+  border-radius: 4px;
+}
+
+.register_account form input[type="text"],
+.register_account form select {
+  font-size: 14px;
+  color: #000;
+  outline: none;
+  margin: 8px 0;
+  width: 340px;
 }
 .register_account form select {
   width: 360px;
-  color: #666;
+  color: #454545;
 }
 .register_account form input[type="text"].code {
   width: 15%;
@@ -370,8 +410,9 @@ input[type="number"] {
   width: 100%;
 }
 .register_account p {
-  font-size: 12px;
-  color: #666;
+  font-size: 13px;
+  color: #454545;
+  text-align: center;
 }
 .search {
   float: left;
@@ -379,15 +420,14 @@ input[type="number"] {
 }
 
 .login_panel {
-  float: left;
-  width: 245px;
-  margin-right: 10px;
+  background: #fff; /* Nền trắng cho form */
   padding: 20px;
-  background: #fff;
-  border: 1px solid #c0bebe;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 350px; /* Độ rộng hợp lý */
+  text-align: center;
+  margin: 0 auto;
+  border: 1.5px solid #000;
 }
 .login_panel input[type="text"],
 .login_panel input[type="password"] {
@@ -409,6 +449,7 @@ p.terms {
   float: left;
   font-size: 12px;
   padding: 15px 0 0 15px;
+  color: #454545;
 }
 p.terms a,
 p.note a {
@@ -421,7 +462,7 @@ p.note a:hover {
 }
 p.note {
   font-size: 15px;
-  color: #666;
+  color: #454545;
   padding: 5px;
   line-height: 1.6em;
 }
@@ -903,6 +944,7 @@ button.grey:hover,
     color-stop(55%, #414045),
     color-stop(100%, #2f2e33)
   );
+  clear: both;
   background: -webkit-linear-gradient(top, #414045 55%, #2f2e33 100%);
   background: -o-linear-gradient(top, #414045 55%, #2f2e33 100%);
   background: -ms-linear-gradient(top, #414045 55%, #2f2e33 100%);
@@ -2761,4 +2803,62 @@ table.tblone img {
 .input.grey {
   font-size: 19px;
   background-color: #fff;
+}
+.grey,
+.buttons input[type="submit"] {
+  background-color: #007bff;
+  border: 1.5px solid #0056b3;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.grey,
+.buttons input[type="submit"]:hover {
+  background-color: #0056b3;
+  border: 1.5px solid #004494;
+}
+.buttons input {
+  width: 100%;
+  background: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.field {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1.5px solid #000;
+}
+.register_account input,
+.register_account select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1.5px solid #000;
+  border-radius: 4px;
+}
+.register_account input.btn {
+  color: #fff;
+  background-color: #007bff;
+  height: 42px;
+  width: 58%;
+  font-size: 14px;
+}
+.search input {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.search input:hover {
+  background-color: #0056b3;
 }

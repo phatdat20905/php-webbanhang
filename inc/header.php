@@ -65,8 +65,8 @@
 			    </div>
 			    <div class="shopping_cart">
 					<div class="cart">
-						<a href="#" title="View my shopping cart" rel="nofollow">
-								<span class="cart_title">Cart</span>
+						<a href="#" title="Xem giỏ hàng của tôi" rel="không theo dõi">
+								<span class="cart_title">Giỏ hàng</span>
 								<span class="no_product">
 									<?php 
 									    $check_cart = $ct->check_cart();
@@ -75,7 +75,7 @@
 											$qty = Session::get("qty");
                                         	echo $sum.'đ'.' - '.'Qty: '.$qty;
 										} else {
-											echo 'Empty';
+											echo 'đang trống';
 										}
                                     ?>
                                 </span>
@@ -97,7 +97,7 @@
 			if($login_check == true) {
                 echo '<a href="?customer_id='.Session::get('customer_id').'">Logout</a>';
             } else {
-                echo '<a href="login.php">Login</a>';
+                echo '<a href="login.php">Đăng Nhập</a>';
             }
 			?>
 			</div>
