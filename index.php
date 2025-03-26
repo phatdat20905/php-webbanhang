@@ -39,7 +39,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['themgiohang'])) {
 						<input type="hidden" name="productId" value="<?php echo $result['productId']?>"/>
 						<input type="submit" name="themgiohang" value="Thêm giỏ hàng" class="button"/>
 					 </form>
+<<<<<<< HEAD
 				     <div class="button"><span><a href="details.php?proid=<?php echo $result['productId']?>" class="details">Details</a></span></div>
+=======
+				     <div class="button"><span><a href="details.php?proid=<?php echo $result['productId']?>" class="details">Xem</a></span></div>
+>>>>>>> f77bac6 (tien)
 				</div>
 				<?php
 					}
@@ -48,7 +52,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['themgiohang'])) {
 			</div>
 			<div class="content_bottom">
     		<div class="heading">
+<<<<<<< HEAD
     		<h3>New Products</h3>
+=======
+    		<h3>Sản Phẩm Mới</h3>
+>>>>>>> f77bac6 (tien)
     		</div>
     		<div class="clear"></div>
     	</div>
@@ -69,7 +77,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['themgiohang'])) {
 						<input type="hidden" name="productId" value="<?php echo $result_new['productId']?>"/>
 						<input type="submit" name="themgiohang" value="Thêm giỏ hàng" class="button"/>
 					 </form>
+<<<<<<< HEAD
 				     <div class="button"><span><a href="details.php?proid=<?php echo $result_new['productId']?>" class="details">Details</a></span></div>
+=======
+				     <div class="button"><span><a href="details.php?proid=<?php echo $result_new['productId']?>" class="details">Xem</a></span></div>
+>>>>>>> f77bac6 (tien)
 				</div>
 				<?php
 						}

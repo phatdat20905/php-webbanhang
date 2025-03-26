@@ -290,7 +290,11 @@ p.note{
         text-shadow       : 0 1px 0 rgba(0, 0, 0, 0.4);
 }
  button.grey:hover,.search button.grey:hover{
+<<<<<<< HEAD
 	        border            : 1px solid #303030;
+=======
+	    border            : 1px solid #303030;
+>>>>>>> f77bac6 (tien)
         background        : #525252;
         background        : -moz-linear-gradient(top,  #525252 0%, #454646 100%);
         background        : -webkit-gradient(linear, left top, left bottom, color-stop(0%,#525252), color-stop(100%,#454646));
@@ -416,8 +420,13 @@ p.note{
 /**** Header Botttom Left ****/
 .header_bottom_left{
 	float:left;
+<<<<<<< HEAD
 	width:50%;
 	padding-top:6px;
+=======
+	width:90%;
+	padding-top:5px;
+>>>>>>> f77bac6 (tien)
 }
 .header_bottom_img{
 	float:left;
@@ -481,7 +490,12 @@ p.note{
 }
 .images_1_of_2 img {
   height: 133px;
+<<<<<<< HEAD
   width: 90px;
+=======
+  width: 90%;
+  object-fit: contain;
+>>>>>>> f77bac6 (tien)
 }
 .list_2_of_1  h2 {
 	color:#CC3636;
@@ -518,12 +532,32 @@ p.note{
         background:#70389C;
         text-decoration:none; 
 }
+<<<<<<< HEAD
 .header_bottom_right_images{
 	float:left;
 	width:49%;
 	margin-left:1%;
 	padding-top: 15px;
 }
+=======
+.header_bottom_right_images {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.header_bottom_right_images img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: contain;
+    display: block;
+}
+
+>>>>>>> f77bac6 (tien)
 .content{
 	padding:20px 0;
 	background:#FFF;
@@ -535,6 +569,7 @@ p.note{
 }
 .content_top{
 	padding:15px 20px;
+<<<<<<< HEAD
 	border:1px solid #EBE8E8;
 	border-radius:3px;
 }
@@ -543,6 +578,29 @@ p.note{
 	border:1px solid #EBE8E8;
 	border-radius:3px;
 	margin-top:2.6%;
+=======
+	border-radius:3px;
+	background: #FF9800; 
+	background: -moz-linear-gradient(top, #FF9800 55%, #E65100 100%); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(55%, #FF9800), color-stop(100%, #E65100));
+	background: -webkit-linear-gradient(top, #FF9800 55%, #E65100 100%); 
+	background: -o-linear-gradient(top, #FF9800 55%, #E65100 100%); 
+	background: -ms-linear-gradient(top, #FF9800 55%, #E65100 100%); 
+	background: linear-gradient(to bottom, #FF9800 55%, #E65100 100%); 
+}
+.content_bottom{
+	padding:15px 20px;
+	border:1px solid #FF9800;
+	border-radius:3px;
+	margin-top:2.6%;
+	background: #FF9800; 
+	background: -moz-linear-gradient(top, #FF9800 55%, #E65100 100%); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(55%, #FF9800), color-stop(100%, #E65100));
+	background: -webkit-linear-gradient(top, #FF9800 55%, #E65100 100%); 
+	background: -o-linear-gradient(top, #FF9800 55%, #E65100 100%); 
+	background: -ms-linear-gradient(top, #FF9800 55%, #E65100 100%); 
+	background: linear-gradient(to bottom, #FF9800 55%, #E65100 100%); 
+>>>>>>> f77bac6 (tien)
 }
 .heading{
 	float:left;
@@ -551,7 +609,13 @@ p.note{
 .heading h3{
 	font-family: 'Monda', sans-serif;
 	font-size:22px;
+<<<<<<< HEAD
 	color:#602D8D;
+=======
+	color:#fff;
+	text-decoration:none;
+	text-shadow:1px 1px 1px #000;
+>>>>>>> f77bac6 (tien)
 	text-transform:uppercase;
 }
 .sort,.show{
@@ -602,13 +666,18 @@ p.note{
 .grid_1_of_4{
 	display: block;
 	float:left;
+<<<<<<< HEAD
 	margin: 1% 0 1% 1.6%;
+=======
+	margin: 1% 1% 0% 0%;
+>>>>>>> f77bac6 (tien)
 	box-shadow: 0px 0px 3px rgb(150, 150, 150);
 }
 .grid_1_of_4:first-child { 
 	margin-left: 0; 
 } 
 .images_1_of_4 {
+<<<<<<< HEAD
 	width: 20.8%;
 	padding:1.5%;
 	text-align:center;
@@ -616,6 +685,25 @@ p.note{
 }
 .images_1_of_4  img{
 	max-width:100%;
+=======
+    width: 20%; /* Giá»¯ kÃ­ch thÆ°á»›c Ä‘á»“ng Ä‘á»u */
+    padding: 1.5%;
+    text-align: center;
+    position: relative;
+    min-height: 410px; /* Äáº·t chiá»u cao cá»‘ Ä‘á»‹nh */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Äáº£m báº£o cÃ¡c pháº§n tá»­ giÃ£n Ä‘á»u */
+    border: 1px solid #ddd;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+.images_1_of_4 img {
+    width: 100%;  /* Äáº£m báº£o áº£nh luÃ´n Ä‘áº§y Ä‘á»§ chiá»u rá»™ng */
+    height: 200px; /* Äáº·t chiá»u cao cá»‘ Ä‘á»‹nh Ä‘á»ƒ áº£nh Ä‘á»u nhau */
+    object-fit: contain; /* Cáº¯t áº£nh Ä‘á»ƒ giá»¯ tá»· lá»‡ vÃ  khÃ´ng mÃ©o */
+>>>>>>> f77bac6 (tien)
 }
 .discount{
 	background:url(../images/discount-img.png) no-repeat 0 0;

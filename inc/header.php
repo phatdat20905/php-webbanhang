@@ -60,13 +60,21 @@
 			    <div class="search_box">
 				    <form action="search.php" method="POST">
 				    	<input type="text" placeholder="Tìm kiếm sản phẩm" name="tukhoa">
+<<<<<<< HEAD
 						<input type="submit" value="SEARCH" name="search_product">
+=======
+						<input type="submit" value="Tìm Kiếm" name="search_product">
+>>>>>>> f77bac6 (tien)
 				    </form>
 			    </div>
 			    <div class="shopping_cart">
 					<div class="cart">
 						<a href="#" title="View my shopping cart" rel="nofollow">
+<<<<<<< HEAD
 								<span class="cart_title">Cart</span>
+=======
+								<span class="cart_title">Giỏ Hàng</span>
+>>>>>>> f77bac6 (tien)
 								<span class="no_product">
 									<?php 
 									    $check_cart = $ct->check_cart();
@@ -105,6 +113,7 @@
 	 </div>
 	 <div class="clear"></div>
  </div>
+<<<<<<< HEAD
 <div class="menu">
 	<ul id="dc_mega-menu-orange" class="dc_mm-orange">
 	  <li><a href="index.php">Home</a></li>
@@ -139,4 +148,43 @@
 	  <li><a href="contact.php">Contact</a> </li>
 	  <div class="clear"></div>
 	</ul>
+=======
+ <div class="menu">
+    <ul id="dc_mega-menu-orange" class="dc_mm-orange">
+        <li><a href="index.php">Trang Chủ</a></li>
+        <li class="dropdown">
+            <a href="products.php" class="dropbtn">Sản Phẩm</a>
+            <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </li>
+        <li><a href="topbrands.php">Hãng Hàng Đầu</a></li>
+        <?php
+        $check_cart = $ct->check_cart();
+        if($check_cart == true) {
+            echo '<li><a href="cart.php">Cart</a></li>';
+        }
+        ?>
+        <?php
+        $customer_id = Session::get('customer_id');
+        $check_order = $ct->check_order($customer_id);
+        if($check_order == true) {
+            echo '<li><a href="orderdetails.php">Ordered</a></li>';
+        }
+        ?>
+        <?php
+        $login_check = Session::get('customer_login');
+        if($login_check) {
+            echo '<li><a href="profile.php">Profile</a></li>';
+            echo '<li><a href="compare.php">Compare</a></li>';
+            echo '<li><a href="wishlist.php">Wishlist</a></li>';
+            echo '<li><a href="history_order.php">Lịch sử đơn hàng</a></li>';
+        }
+        ?>
+        <li><a href="contact.php">Liên Hệ</a></li>
+        <div class="clear"></div>
+    </ul>
+>>>>>>> f77bac6 (tien)
 </div>

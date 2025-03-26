@@ -3,6 +3,7 @@
    	  <div class="wrapper">	
 	     <div class="section group">
 				<div class="col_1_of_4 span_1_of_4">
+<<<<<<< HEAD
 						<h4>Information</h4>
 						<ul>
 						<li><a href="#">About Us</a></li>
@@ -34,12 +35,48 @@
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<h4>Contact</h4>
+=======
+						<h4>Thông Tin</h4>
+						<ul>
+						<li><a href="#">Về Chúng Tôi</a></li>
+						<li><a href="#">Dịch Vụ Khách Hàng</a></li>
+						<li><a href="#"><span>Tìm Kiếm Nâng Cao</span></a></li>
+						<li><a href="#">Đơn Hàng Và Hoàn Tiền</a></li>
+						<li><a href="#"><span>Liên Hệ Với Chúng Tôi</span></a></li>
+						</ul>
+					</div>
+				<div class="col_1_of_4 span_1_of_4">
+					<h4>Tại Sao Nên Mua Hàng Từ Chúng Tôi</h4>
+						<ul>
+						<li><a href="faq.php">Chăm Sóc Khách Hàng</a></li>
+						<li><a href="#">Chính Sách Bảo Mật</a></li>
+						<li><a href="contact.php"><span>Sơ Đồ Cửa Hàng</span></a></li>
+						<li><a href="details.php"><span>Điều Khoản Tìm Kiếm</span></a></li>
+						</ul>
+				</div>
+				<div class="col_1_of_4 span_1_of_4">
+					<h4>Tài Khoản</h4>
+						<ul>
+							<li><a href="contact.php">Đăng Nhập</a></li>
+							<li><a href="index.php">Xem Giỏ hàng</a></li>
+							<li><a href="#">Danh Sách Mong Muốn</a></li>
+							<li><a href="#">Theo Dõi Đơn Hàng</a></li>
+							<li><a href="faq.php">Trợ Giúp</a></li>
+						</ul>
+				</div>
+				<div class="col_1_of_4 span_1_of_4">
+					<h4>Liên Hệ</h4>
+>>>>>>> f77bac6 (tien)
 						<ul>
 							<li><span>+88-01713458599</span></li>
 							<li><span>+88-01813458552</span></li>
 						</ul>
 						<div class="social-icons">
+<<<<<<< HEAD
 							<h4>Follow Us</h4>
+=======
+							<h4>Theo Dõi</h4>
+>>>>>>> f77bac6 (tien)
 					   		  <ul>
 							      <li class="facebook"><a href="#" target="_blank"> </a></li>
 							      <li class="twitter"><a href="#" target="_blank"> </a></li>
@@ -51,7 +88,11 @@
 				</div>
 			</div>
 			<div class="copy_right">
+<<<<<<< HEAD
 				<p>Training with live project &amp; All rights Reseverd </p>
+=======
+				<p>Dự Án Cửa Hàng Bán Đồ Điện Tử &amp; Nhóm LTW </p>
+>>>>>>> f77bac6 (tien)
 		   </div>
      </div>
     </div>

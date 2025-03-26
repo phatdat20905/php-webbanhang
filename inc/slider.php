@@ -13,7 +13,11 @@
 				    <div class="text list_2_of_1">
 						<h2><?php echo $resultdell['productName']?></h2>
 						<p><?php echo $resultdell['product_desc']?></p>
+<<<<<<< HEAD
 						<div class="button"><span><a href="details.php?proid=<?php echo $resultdell['productId']?>">Add to cart</a></span></div>
+=======
+						<div class="button"><span><a href="details.php?proid=<?php echo $resultdell['productId']?>">Thêm Giỏ Hàng</a></span></div>
+>>>>>>> f77bac6 (tien)
 				   </div>
 			   </div>			
 			   <?php 
@@ -31,7 +35,11 @@
 				    <div class="text list_2_of_1">
 						<h2><?php echo $resultSS['productName']?></h2>
 						<p><?php echo $resultSS['product_desc']?></p>
+<<<<<<< HEAD
 						<div class="button"><span><a href="details.php?proid=<?php echo $resultSS['productId']?>">Add to cart</a></span></div>
+=======
+						<div class="button"><span><a href="details.php?proid=<?php echo $resultSS['productId']?>">Thêm Giỏ Hàng</a></span></div>
+>>>>>>> f77bac6 (tien)
 				   </div>
 			   </div>			
 			   <?php 
@@ -51,7 +59,11 @@
 				    <div class="text list_2_of_1">
 						<h2><?php echo $resultApple['productName']?></h2>
 						<p><?php echo $resultApple['product_desc']?></p>
+<<<<<<< HEAD
 						<div class="button"><span><a href="details.php?proid=<?php echo $resultApple['productId']?>">Add to cart</a></span></div>
+=======
+						<div class="button"><span><a href="details.php?proid=<?php echo $resultApple['productId']?>">Thêm Giỏ Hàng</a></span></div>
+>>>>>>> f77bac6 (tien)
 				   </div>
 			   </div>			
 			   <?php 
@@ -69,7 +81,11 @@
 				    <div class="text list_2_of_1">
 						<h2><?php echo $resultMSI['productName']?></h2>
 						<p><?php echo $resultMSI['product_desc']?></p>
+<<<<<<< HEAD
 						<div class="button"><span><a href="details.php?proid=<?php echo $resultMSI['productId']?>">Add to cart</a></span></div>
+=======
+						<div class="button"><span><a href="details.php?proid=<?php echo $resultMSI['productId']?>">Thêm Giỏ Hàng</a></span></div>
+>>>>>>> f77bac6 (tien)
 				   </div>
 			   </div>			
 			   <?php 
