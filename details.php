@@ -131,6 +131,9 @@
 
 		</div>
 	</div>
+	<?php
+	if(Session::get('customer_login')){
+	?>
 	<div class="comment">
 		<h2>Ý kiến sản phẩm</h2>
 		<ul>
@@ -201,6 +204,9 @@
 				<input type="submit" name="submitComment" value="Gửi bình luân">
 			</form>
 	</div>
+	<?php
+	}
+	?>
 </div>
 
 <?php 

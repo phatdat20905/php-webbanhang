@@ -45,11 +45,12 @@
         <div class="grid_12 header-repeat">
             <div id="branding">
                 <div class="floatleft logo">
-                    <img src="img/livelogo.png" alt="Logo" />
+                    <!-- <img src="img/livelogo.png" alt="Logo" /> -->
+                    <img src="./img/logo-admin.png" alt="Logo" style="border-radius: 50px; width:60px;height:60px; margin-top: -20px;" />
 				</div>
 				<div class="floatleft middle">
-					<h1>Training with live project</h1>
-					<p>www.trainingwithliveproject.com</p>
+					<h1>Web Bán Hàng Online</h1>
+					<p>Chuyên bán các thiết bị điện tử</p>
 				</div>
                 <div class="floatright">
                     <div class="floatleft">
@@ -75,10 +76,10 @@
         <div class="grid_12">
             <ul class="nav main">
                 <li class="ic-dashboard"><a href="index.php"><span>Dashboard</span></a> </li>
-                <li class="ic-form-style"><a href=""><span>User Profile</span></a></li>
-				<li class="ic-typography"><a href="changepassword.php"><span>Change Password</span></a></li>
-				<li class="ic-grid-tables"><a href="inbox.php"><span>Inbox</span></a></li>
-                <li class="ic-charts"><a href=""><span>Visit Website</span></a></li>
+                <!-- <li class="ic-form-style"><a href=""><span>User Profile</span></a></li>
+				<li class="ic-typography"><a href="changepassword.php"><span>Change Password</span></a></li> -->
+				<!-- <li class="ic-grid-tables"><a href="inbox.php"><span>Inbox</span></a></li> -->
+                <!-- <li class="ic-charts"><a href=""><span>Visit Website</span></a></li> -->
             </ul>
         </div>
         <div class="clear">

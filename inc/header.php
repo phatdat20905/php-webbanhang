@@ -111,12 +111,12 @@
 	  <li><a href="products.php">Products</a> </li>
 	  <li><a href="topbrands.php">Top Brands</a></li>
 	  <?php
-	  $check_cart = $ct->check_cart();
-	  if($check_cart == true) {
-          echo '<li><a href="cart.php">Cart</a></li>';
-      } else {
-		echo '';
-	  }
+	//   $check_cart = $ct->check_cart();
+	//   if($check_cart == true) {
+    //       echo '<li><a href="cart.php">Cart</a></li>';
+    //   } else {
+	// 	echo '';
+	//   }
 	  ?>
 	  <?php
 	  $customer_id = Session::get('customer_id');
@@ -131,6 +131,7 @@
 	  $login_check = Session::get('customer_login');
 	  if($login_check) {
           echo '<li><a href="profile.php">Profile</a></li>';
+          echo '<li><a href="cart.php">Cart</a></li>';
           echo '<li><a href="compare.php">Compare</a></li>';
           echo '<li><a href="wishlist.php">Wishlist</a></li>';
           echo '<li><a href="history_order.php">Lịch sử đơn hàng</a></li>';
